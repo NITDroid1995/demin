@@ -157,13 +157,19 @@ if($_SESSION['admin'] == '1'){
 
 
 
-}elseif($_SESSION['admin'] == '0'){
+}elseif(($_SESSION['admin'] == '0') AND ($car_info['active'] == 'yes')){
   echo '
   <div style="width: 20%; margin-left: 50%;">
   <a class="btn btn-primary" href="http://nitdroid.dlinkddns.com/demin/sell.php?id='.$car_info['id'].'" role="button">Оформить продажу :D</a>
 </div>
 ';
   
+}elseif(($_SESSION['admin'] == '0') AND ($car_info['active'] != 'yes')){
+   echo '
+  <div style="width: 20%; margin-left: 50%;">
+  <button type="button" class="btn btn-success">Продано</button>
+</div>
+'; 
 }
 
 echo '
