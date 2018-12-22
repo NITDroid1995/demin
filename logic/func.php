@@ -1,8 +1,7 @@
 <?
 session_start();
 
-function Head(){
-  echo '<!doctype html>
+function Head(){echo '<!doctype html>
 <html lang="ru">
   <head>
     <meta charset="utf-8">
@@ -356,7 +355,7 @@ function loadClientList($code){
 
             echo '
             <tr>
-              <th scope="row">'.$row['code'].'</th>
+              <th scope="row"><a href="http://nitdroid.dlinkddns.com/demin/view_carlist.php?code='.$row['code'].'">'.$row['code'].'</a></th>
               <td>'.$row['sername'].'</td>
               <td>'.$row['name'].'</td>
               <td>'.$row['second_name'].'</td>
@@ -375,4 +374,41 @@ echo '
           </tbody>
         </table>';
 }
+
+
+function loadClientsCar($code){
+	 echo '<table class="table">
+          <thead>
+            <tr>
+              <th>Название авто</th>
+              <th>Пробег</th>
+              <th>Дата производства</th>
+              <th>Статус</th>
+            </tr>
+          </thead>
+          <tbody id="myTable">';
+	$bd = mysqli_connect("localhost", "site", "site", "demin");
+	if ($list_car = $bd->query("SELECT * FROM cars WHERE code_client = '$code'")) {
+    while ($row = $list_car->fetch_assoc()) {
+    	if($row['active'] == 'yes'){
+    		$status = 'Продается';
+    	}else{
+    		$status = 'Продано';
+    	}
+
+            echo '
+            <tr>
+              <th scope="row"><a href="http://nitdroid.dlinkddns.com/demin/view.php?id='.$row['id'].'">'.$row['model'].' '.$row['mark'].'</a></th>
+              <td>'.$row['probeg'].'</td>
+              <td>'.$row['date'].'</td>
+              <td>'.$status.'</td>
+            </tr>';
+            
+
+
+}}
+echo ' 
+          </tbody>
+        </table>';
+        }
 ?>
