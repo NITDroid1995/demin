@@ -1,0 +1,31 @@
+.html{
+	background-color: beige;
+}
+.btn-primary{
+	width: 100%;
+}
+    .main{
+      width: 90%; 
+      margin-left: auto; 
+      margin-right: auto;
+      position: relative;
+    }
+    .container{
+      float: left;
+      width: 31.1%;
+      border-width: 3px; 
+      border-radius: 8px; 
+      background: #fdd8b9;
+      margin: 1%;
+      height: 350px;
+
+    }
+    .image{
+      width: 100%;
+      height: 90%;
+      margin-top: 5%;
+    }
+    .cont_img{
+      width: 100%;
+      height: 90%;
+    }
