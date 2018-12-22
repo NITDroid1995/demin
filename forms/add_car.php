@@ -3,6 +3,7 @@
 include "functions.php";
 $code_diler = $_SESSION['name'];
 
+
 ?>
 
 
@@ -21,18 +22,37 @@ $code_diler = $_SESSION['name'];
     <select class="form-control" name="user" type="text">
   <?
   loadUsers();
+
+///////////////////////
+
+
+
+//////////////////////
   ?>
 
 </select>
+
+
+
   </div>
+
     <div class="form-group">
-    <label for="formGroupExampleInput2">Модель автомобиля</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="модель" name="model" required>
+    <label for="type">Марка автомобиля</label>
+    <select class="form-control" name="mark" id="type" required>
+      <option value="1">Lada</option>
+      <option value="2">Mersedes</option>
+      <option value="3">BMW</option>
+
+    </select>
   </div>
   <div class="form-group">
-    <label for="formGroupExampleInput">Марка автомобиля</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="марка" name="mark" required >
+    <label for="kind">Модель автомобиля</label>
+        <select class="form-control" name="model" id="kind" required>
+      <option value="0">Не определено</option>
+
+    </select>
   </div>
+<script src="http://nitdroid.dlinkddns.com/demin/js/nit.js"></script>
 
     <div class="form-group">
     <label for="formGroupExampleInput2">Пробег</label>

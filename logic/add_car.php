@@ -23,6 +23,30 @@ copy($_FILES['uploadfile']['tmp_name'],"../img/".basename($_FILES['uploadfile'][
 $img = $_FILES['uploadfile']['name'];
 $code_auto = MD5(time());
 
+
+
+if($mark == '3'){
+	if($model == '1'){$model = 'X3';}
+	if($model == '2'){$model = 'X5M';}
+	if($model == '3'){$model = 'X6M';}
+$mark = 'BMW';
+}elseif($mark == '2'){
+	$mark = 'Mersedes';
+		if($model == '1'){$model = 'G63';}
+		if($model == '2'){$model = 'C-Class';}
+		if($model == '3'){$model = 'E_Class';}
+
+}elseif($mark == '1'){
+	$mark = 'Lada';
+		if($model == '1'){$model = 'Granta';}
+		if($model == '2'){$model = 'X-Ray';}
+		if($model == '3'){$model = 'Priora';}
+}
+
+
+
+
+
 $bd->query("INSERT INTO cars (mark, model, probeg, date, img, code_client, code_diler, price, code_auto) VALUES ('$mark', '$model', '$probeg', '$date', '$img', '$code', '$code_diler', '$price', '$code_auto')");
 $_SESSION['result'] = 'create_auto';
 header('Location: http://nitdroid.dlinkddns.com/demin');//Редирект

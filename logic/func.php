@@ -13,6 +13,7 @@ function Head(){echo '<!doctype html>
     <script src="http://nitdroid.dlinkddns.com/demin/js/jquery.js"></script>
     <script src="http://nitdroid.dlinkddns.com/demin/js/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="http://nitdroid.dlinkddns.com/demin/js/jquery-ui.css">
+    
     <title>Авто+</title>
  
   </head>
