@@ -27,7 +27,7 @@
   </div>
     <div class="form-group">
     <label for="formGroupExampleInput">Телефон дилера</label>
-    <input type="text" class="form-control" id="number" placeholder="" name="number" required>
+    <input type="number" class="form-control" id="number" placeholder="" name="number" required>
   </div>
     <div class="form-group">
     <label for="exampleFormControlFile1">Выберите изображение</label>

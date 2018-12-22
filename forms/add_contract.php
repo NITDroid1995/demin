@@ -31,7 +31,7 @@
   </div>
     <div class="form-group">
     <label for="formGroupExampleInput">Контактный телефон</label>
-    <input type="text" class="form-control" pattern="^\d{10}$" id="formGroupExampleInput" placeholder="+79053211060" size="11" name="number" required>
+    <input type="number" class="form-control" pattern="^\d{10}$" id="formGroupExampleInput" placeholder="+79053211060" size="11" name="number" required>
   </div>
   
       <div class="modal-footer">

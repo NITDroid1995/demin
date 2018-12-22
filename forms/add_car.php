@@ -36,11 +36,11 @@ $code_diler = $_SESSION['name'];
 
     <div class="form-group">
     <label for="formGroupExampleInput2">Пробег</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="пробег" name="probeg" required>
+    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="пробег" name="probeg" required>
   </div>
     <div class="form-group">
     <label for="formGroupExampleInput2">Цена</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="цена" name="price" required>
+    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="цена" name="price" required> ₽
   </div>
 
     <div class="form-group">

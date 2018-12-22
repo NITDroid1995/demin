@@ -31,7 +31,7 @@
   </div>
     <div class="form-group">
     <label for="formGroupExampleInput">Контактный телефон</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="+79053211060" size="12" name="number" required>
+    <input type="number" class="form-control" id="formGroupExampleInput" placeholder="+79053211060" size="12" name="number" required>
   </div>
   
       <div class="modal-footer">
