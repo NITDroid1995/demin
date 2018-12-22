@@ -95,11 +95,12 @@ function CheckAuth(){
                       Админ-Функции
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dilers">
-                        Добавить дилера
-                        </button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dilers">Добавить дилера </button>
+                        <a href="http://nitdroid.dlinkddns.com/demin/functions/view_clients.php" ><button type="button" class="btn btn-primary">Список клиентов </button></a>
+                        <a href="http://nitdroid.dlinkddns.com/demin/functions/view_dilers.php" > <button type="button" class="btn btn-primary">Список дилеров </button></a>
                       </div>
-                    </li>';                                            
+                    </li>';   
+
 
 
 	if(($_SESSION['secret'] =='') OR ($_SESSION['name'] =='') OR ($_SESSION['admin'] =='') OR ($_SESSION['test'] =='') OR ($_SESSION['fio'] =='')  ){
@@ -417,4 +418,86 @@ echo '
           </tbody>
         </table>';
         }
+
+function admin_dilers(){
+  $bd = mysqli_connect("localhost", "site", "site", "demin");
+  $nums_dog = $bd->query("SELECT id FROM dogovor");
+  $nums_dog = mysqli_num_rows($nums_dog);
+echo '<table class="table">
+          <thead>
+            <tr>
+              <th>Код авторизации</th>
+              <th>ФИО</th>
+              <th>Адрес</th>
+              <th>Телефон</th>
+              <th>Договоров</th>
+              <th>Всего: '.$nums_dog.'</th>
+            </tr>
+          </thead>
+          <tbody id="myTable">';
+if ($list_dilers = $bd->query("SELECT * FROM dilers")) {
+    while ($row = $list_dilers->fetch_assoc()) {
+      $code_diler = $row['code'];
+      $num_dog = $bd->query("SELECT id FROM dogovor WHERE `code-diler` = '$code_diler'");
+      $num_dog = mysqli_num_rows($num_dog);
+      echo '
+            <tr>
+              <th scope="row">'.$row['code'].'</th>
+              <td>'.$row['FIO'].'</td>
+              <td>'.$row['adres'].'</td>
+              <td>'.$row['number'].'</td>
+              <td>'.$num_dog.'</td>
+            </tr>';
+
+}
+}
+
+
+echo ' 
+          </tbody>
+        </table>';
+
+
+}
+
+function admin_clients(){
+  $bd = mysqli_connect("localhost", "site", "site", "demin");
+  $quary = ("SELECT * FROM clients");
+    echo '<table class="table">
+          <thead>
+            <tr>
+              <th>Код клиента</th>
+              <th>Фамилия</th>
+              <th>Имя</th>
+              <th>Отчество</th>
+              <th>Город</th>
+              <th>Адрес</th>
+              <th>Контактный телефон</th>
+              <th>Кол-во договоров</th>
+            </tr>
+          </thead>
+          <tbody id="myTable">';
+  if ($result = $bd->query($quary)) {
+    while ($row = $result->fetch_assoc()) {
+            $dogovor = mysqli_query($bd, 'SELECT id FROM dogovor WHERE `code-client` = "'.$row['code'].'"');
+            $dogovor = mysqli_num_rows($dogovor);
+
+            echo '
+            <tr>
+              <th scope="row"><a href="http://nitdroid.dlinkddns.com/demin/view_carlist.php?code='.$row['code'].'">'.$row['code'].'</a></th>
+              <td>'.$row['sername'].'</td>
+              <td>'.$row['name'].'</td>
+              <td>'.$row['second_name'].'</td>
+              <td>'.$row['city'].'</td>
+              <td>'.$row['adress'].'</td>
+              <td>'.$row['number'].'</td>
+              <td>'.$dogovor.'</td>
+            </tr>';
+            }
+
+
+}
+}
+
+
 ?>
